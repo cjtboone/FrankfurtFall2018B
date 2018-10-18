@@ -27,3 +27,5 @@ Dr. Mehlhase
 Paul Traxler was here. 
 
 Chandler Boone was also here.
+
+Gianni Carvajal was also here and says what up.
