@@ -32,4 +32,4 @@ Cristi DeLeo was here.
 
 Gianni Carvajal was also here and says what up.
 
-Kevin Shelley was finally here #imapepper
+Kevin Shelley was finally here
