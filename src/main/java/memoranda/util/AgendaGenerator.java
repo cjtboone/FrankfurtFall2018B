@@ -56,17 +56,22 @@ public class AgendaGenerator {
 		}
 		String s = "";
 		int k = getProgress(tl);
+		
+		/* Not used for BusTrax implementation
 		if (k > -1) {
 			s += "<br>" + Local.getString("Total progress") + ": " + k + "%";        	
 		}
-		s += "</td></tr></table>\n";
+		*/
+	
+		// Commented out so table would show up correctly with new interface
+		//s += "</td></tr></table>\n";
 
 		Vector tasks = (Vector) tl.getActiveSubTasks(null,date);        
 		if (tasks.size() == 0) {
-			s += "<p>" + Local.getString("No actual tasks") + ".</p>\n";        	
+			s += "<p>" + Local.getString("No Tours") + ".</p>\n";        	
 		}
 		else {
-			s += Local.getString("Actual tasks") + ":<br>\n<ul>\n";            
+			//s += Local.getString("") + ":<br>\n<ul>\n";            
 
 			//            TaskSorter.sort(tasks, date, TaskSorter.BY_IMP_RATE); // TODO: configurable method
 			Collections.sort(tasks);
@@ -282,22 +287,25 @@ public class AgendaGenerator {
 			+"</i>\n";        
 		return s + generateTasksInfo(p, date,expandedTasks);        
 	}
-
-	static String generateAllProjectsInfo(CalendarDate date, Collection expandedTasks) {
+	
+	/**
+	 * Generates the tour list on the Upcoming page
+	 * @param date - Current Date
+	 * @param expandedTours - List of Tours
+	 * @return
+	 */
+	static String generateAllTourInfo(CalendarDate date, Collection expandedTours) {
+		// Creates an HTML table with 1 row, 2 columns. First column has upcoming tour info.
+		// Second column is empty, could be added to if we have more we want on this page. 
 		String s =
 				"<td width=\"66%\" valign=\"top\">"
 						+ "<h1>"
-						+ Local.getString("Projects and tasks")
-						+ "</h1>\n";
-		s += generateProjectInfo(CurrentProject.get(), date, expandedTasks);        
-		for (Iterator i = ProjectManager.getActiveProjects().iterator();
-				i.hasNext();
-				) {
-			Project p = (Project) i.next();
-			if (!p.getID().equals(CurrentProject.get().getID()))
-				s += generateProjectInfo(p, date, expandedTasks);
-		}
-		return s + "</td>";
+						+ Local.getString("Upcoming Tours")
+						+ "</h1>\n"
+						// Get task list.
+						+ generateTasksInfo(CurrentProject.get(), date, expandedTours)
+		 				+ "</td><td width =\"34%\"></td>";
+		return s;
 	}
 
 	static String generateEventsInfo(CalendarDate date) {
@@ -418,9 +426,9 @@ public class AgendaGenerator {
 	
 	public static String getAgenda(CalendarDate date, Collection expandedTasks) {
 		String s = HEADER;
-		s += generateAllProjectsInfo(date, expandedTasks);
-		s += generateEventsInfo(date);
-		s += generateStickers(date);
+		s += generateAllTourInfo(date, expandedTasks);
+		//s += generateEventsInfo(date);
+		//s += generateStickers(date);
 		//        /*DEBUG*/System.out.println(s+FOOTER);
 		return s + FOOTER;
 	}
