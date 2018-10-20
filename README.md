@@ -1,4 +1,4 @@
-Project SER316
+﻿Project SER316
 
 # spring18project
 This is the initial dump for the ser316 spring 2018 project. It is a slightly modified version of the Memoranda project from memoranda.sf.net
@@ -33,3 +33,5 @@ Cristi DeLeo was here.
 Gianni Carvajal was also here and says what up.
 
 Kevin Shelley was finally here
+
+Adam Castro finally got through
