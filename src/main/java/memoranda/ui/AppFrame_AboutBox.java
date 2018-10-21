@@ -28,6 +28,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
   JLabel imageLabel = new JLabel();
   JLabel lblText = new JLabel();
   
+  String companyLogo = "BusTrax - Tour Scheduler";
   String product = "Version "+App.VERSION_INFO + " (Build " + App.BUILD_INFO + ")";
   String copyright = "Copyright (c) 2003, 2004 Memoranda team";
   String url = App.WEBSITE_URL;
@@ -65,11 +66,12 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     catch(Exception e) {
       e.printStackTrace();
     }
-    setSize(400, 500);
+    setSize(400, 600);
   }
   //Component initialization
   private void jbInit() throws Exception  {    
     String text = "<html>";
+    text += "<b>"+companyLogo+"</b><br><br>";
     text += "<b>"+product+"</b><br><br>";
     text += copyright + "<br>" + url + "<br><br>";
     text += "<b>" + developersHead + "</b><br>";    
@@ -81,17 +83,17 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     
     text += "</html>";
     
-    image = new ImageIcon(AppFrame_AboutBox.class.getResource("/ui/memoranda.png"));
-    this.setTitle(Local.getString("About Memoranda"));
+    image = new ImageIcon(AppFrame_AboutBox.class.getResource("/ui/BusTrax (200x100).png"));
+    this.setTitle(Local.getString("About BusTrax"));
     setResizable(false);
     // Initialize Objects
     lblText.setFont(new java.awt.Font("Dialog", 0, 11));
     lblText.setText(text);
-    lblText.setBounds(10, 55, 300, 400);
+    lblText.setBounds(10, 100, 300, 400);
 
     
     button1.setText(Local.getString("Ok"));
-    button1.setBounds(150, 415, 95, 30);
+    button1.setBounds(150, 500, 95, 30);
     button1.addActionListener(this);
     button1.setPreferredSize(new Dimension(95, 30));
     button1.setBackground(new Color(69, 125, 186));
