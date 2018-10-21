@@ -13,3 +13,10 @@
 # JDT-specific (Eclipse Java Development Tools)		
 .classpath
 /classes/
+
+### Gradle ###
+# gradle files
+.gradle
+
+# Build folder
+build
