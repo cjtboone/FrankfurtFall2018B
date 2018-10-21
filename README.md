@@ -27,3 +27,9 @@ Dr. Mehlhase
 Paul Traxler was here. 
 
 Chandler Boone was also here.
+
+Cristi DeLeo was here.
+
+Gianni Carvajal was also here and says what up.
+
+Kevin Shelley was finally here
