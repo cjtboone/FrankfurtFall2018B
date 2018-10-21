@@ -117,11 +117,17 @@ public class App {
 		 */
 		/* Used to maximize the screen if the JVM Version if 1.4 or higher */
 		/* --------------------------------------------------------------- */
-		double JVMVer =
-			Double
-				.valueOf(System.getProperty("java.version").substring(0, 3))
-				.doubleValue();
+		double JVMVer = 0;
+		String currentJavaVersion = System.getProperty("java.version");
 
+		if (currentJavaVersion.length() > 2) {
+			JVMVer = Double.valueOf(
+							currentJavaVersion.substring(0, 3)).doubleValue();
+		}
+		else {
+			JVMVer = Double.valueOf(
+							currentJavaVersion.substring(0, 2)).doubleValue();
+		}
 		frame.pack();
 		if (JVMVer >= 1.4) {
 			frame.setExtendedState(Frame.MAXIMIZED_BOTH);
