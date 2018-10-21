@@ -73,12 +73,13 @@ public class WorkPanel extends JPanel {
 		agendaB.setMinimumSize(new Dimension(30, 30));
 
 		agendaB.setFont(new java.awt.Font("Dialog", 1, 10));
-		agendaB.setPreferredSize(new Dimension(50, 50));
+		// Increased size a little so "Upcoming" doesn't get cut off
+		agendaB.setPreferredSize(new Dimension(60, 50));
 		agendaB.setBorderPainted(false);
 		agendaB.setContentAreaFilled(false);
 		agendaB.setFocusPainted(false);
 		agendaB.setHorizontalTextPosition(SwingConstants.CENTER);
-		agendaB.setText(Local.getString("Agenda"));
+		agendaB.setText(Local.getString("Upcoming"));
 		agendaB.setVerticalAlignment(SwingConstants.TOP);
 		agendaB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		agendaB.addActionListener(new java.awt.event.ActionListener() {
